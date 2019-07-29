@@ -21,6 +21,12 @@ $container = new Container();
 $container->set('db', function () use ($config) {
     return new Medoo($config['db']);
 });
+// 注入模板引擎
+$container->set('view', function () {
+    return new \Slim\Views\Twig(__DIR__ . '/../resources/views', [
+        'cache' => __DIR__ . '/../resources/to/cache'
+    ]);
+});
 
 //app 工厂添加容器
 AppFactory::setContainer($container);

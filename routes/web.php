@@ -8,3 +8,4 @@
 
 $app->get('/', \App\Http\Controllers\IndexController::class . ':index');
 $app->get('/db', \App\Http\Controllers\IndexController::class . ':db');
+$app->get('/muban/{name}', \App\Http\Controllers\IndexController::class . ':muban');
