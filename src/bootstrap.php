@@ -24,7 +24,8 @@ $container->set('db', function () use ($config) {
 // 注入模板引擎
 $container->set('view', function () {
     return new \Slim\Views\Twig(__DIR__ . '/../resources/views', [
-        'cache' => __DIR__ . '/../resources/to/cache'
+        // 模板缓存目录
+        'cache' => __DIR__ . '/../runtime/cache'
     ]);
 });
 
