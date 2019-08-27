@@ -6,6 +6,7 @@
  * Time: 23:56
  */
 
+// 引入启动类
 require __DIR__ . '/../src/bootstrap.php';
-
+// 运行
 $app->run();

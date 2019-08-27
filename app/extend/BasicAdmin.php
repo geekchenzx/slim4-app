@@ -8,8 +8,9 @@
 
 namespace App\extend\controller;
 
-use App\extend\Controller;
 //  后台基础控制器
+use App\Common\Controller;
+
 class BasicAdmin extends Controller
 {
 

@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers;
 
-use App\extend\Controller;
+use App\Common\Controller;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -25,7 +25,7 @@ class IndexController extends Controller
      * @param Response $response
      * @return Response
      */
-    public function db(Request $request, Response $response) {
+    public function db( Request $request, Response $response) {
         $data = $this->db->select('user', ['id', 'username', 'password']);
         var_dump($data);
         return $response;
@@ -41,9 +41,12 @@ class IndexController extends Controller
     {
 //        $name = $request->getAttribute('name');
 //        echo $args['name'];
-        return $this->view->render($response, 'muban.html', [
+        return $this->views($response,'muban.html', [
             'name' => $args['name']
         ]);
+//           return $this->view->render($response, 'muban.html', [
+//            'name' => $args['name']
+//        ]);
     }
 
 }
