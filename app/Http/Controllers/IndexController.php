@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 use App\Common\Controller;
+use App\Model\Base;
+use App\Model\User;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -27,7 +29,9 @@ class IndexController extends Controller
      */
     public function db( Request $request, Response $response) {
         $data = $this->db->select('user', ['id', 'username', 'password']);
+        $data = (new User($this->db))->get();
         var_dump($data);
+//        var_dump((new Base($this->db))->get());
         return $response;
     }
 

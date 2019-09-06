@@ -11,6 +11,7 @@
         "php-di/php-di": "^6.0",
         "catfan/medoo": "^1.6",
         "slim/twig-view": "^2.5"
+
     },
     "autoload": {
         "psr-4": {

@@ -11,28 +11,31 @@ use Medoo\Medoo;
 use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
 
-require __DIR__ . '/../vendor/autoload.php';
-$config = require __DIR__ . "/../src/config.php";
+require ROOT_BASE_PATH . 'vendor/autoload.php';
+$config = require ROOT_BASE_PATH . "src/config.php";
 
 //创建一个容器(第三方的)
 $container = new Container();
 
 // 注入数据库
 $container->set('db', function () use ($config) {
-    return new Medoo($config['db']);
+    return new Medoo($config['setting']['db']);
 });
 // 注入模板引擎
 $container->set('view', function () {
-    return new \Slim\Views\Twig(__DIR__ . '/../resources/views', [
+
+    return new \Slim\Views\Twig(ROOT_BASE_PATH . 'app/views', [
         // 模板缓存目录
-        'cache' => __DIR__ . '/../runtime/cache'
+        'cache' => ROOT_BASE_PATH . 'runtime/temp',
+        'auto_reload' => true,
+        'debug' => true
     ]);
 });
 
 //app 工厂添加容器
 AppFactory::setContainer($container);
 //实例注入容器文件
-require __DIR__ . '/../src/dependencies.php';
+require ROOT_BASE_PATH . 'src/dependencies.php';
 
 $app = AppFactory::create();
 

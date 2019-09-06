@@ -6,7 +6,10 @@
  * Time: 23:56
  */
 
+// 根目录
+define('ROOT_BASE_PATH', __DIR__ . '/../');
+
 // 引入启动类
-require __DIR__ . '/../src/bootstrap.php';
+require ROOT_BASE_PATH . 'src/bootstrap.php';
 // 运行
 $app->run();
