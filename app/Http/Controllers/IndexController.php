@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chenzx
@@ -16,7 +17,11 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class IndexController extends Controller
 {
-    public function index(Request $request, Response $response) {
+    public function index(Request $request, Response $response)
+    {
+        $user = User::all();
+        print_r($user->toArray());
+
         $response->getBody()->write('这是主控制器');
         return $response;
     }
@@ -27,11 +32,12 @@ class IndexController extends Controller
      * @param Response $response
      * @return Response
      */
-    public function db( Request $request, Response $response) {
+    public function db(Request $request, Response $response)
+    {
         $data = $this->db->select('user', ['id', 'username', 'password']);
         $data = (new User($this->db))->get();
         var_dump($data);
-//        var_dump((new Base($this->db))->get());
+        //        var_dump((new Base($this->db))->get());
         return $response;
     }
 
@@ -43,14 +49,13 @@ class IndexController extends Controller
      */
     public function muban(Request $request, Response $response, $args)
     {
-//        $name = $request->getAttribute('name');
-//        echo $args['name'];
-        return $this->views($response,'muban.html', [
+        //        $name = $request->getAttribute('name');
+        //        echo $args['name'];
+        return $this->views($response, 'muban.html', [
             'name' => $args['name']
         ]);
-//           return $this->view->render($response, 'muban.html', [
-//            'name' => $args['name']
-//        ]);
+        //           return $this->view->render($response, 'muban.html', [
+        //            'name' => $args['name']
+        //        ]);
     }
-
 }

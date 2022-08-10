@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chenzx
@@ -12,5 +13,4 @@ namespace App\Model;
 class User extends Base
 {
     protected $table = 'user';
-    protected $fillable = ['id', 'username'];
 }

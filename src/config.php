@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chenzx
@@ -8,19 +9,23 @@
 return [
     'setting' => [
         // 数据库orm配置
-        'db'   => [
-            'database_type' => 'mysql',
-            'database_name' => 'site',
-            'server'        => '127.0.0.1',
-            'username'      => 'root',
-            'password'      => '123456',
-            'charset'       => 'utf8',
-            'prefix'        => '',
+        'determineRouteBeforeAppMiddleware' => false,
+        'displayErrorDetails' => true,
+        'db' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'site',
+            'username' => 'root',
+            'password' => '123123',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_general_ci',
+            'prefix' => '',
         ],
+
         // 模版引擎相关配置
         'twig' => [
             'template_path' => ROOT_BASE_PATH . 'app/views',
-            'cache'         => ROOT_BASE_PATH. 'runtime/temp',
+            'cache'         => ROOT_BASE_PATH . 'runtime/temp',
             'auto_reload'   => true,
             'debug'         => true
         ]

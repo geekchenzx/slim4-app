@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chenzx
@@ -11,6 +12,8 @@ use Medoo\Medoo;
 use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
 
+use function DI\env;
+
 require ROOT_BASE_PATH . 'vendor/autoload.php';
 $config = require ROOT_BASE_PATH . "src/config.php";
 
@@ -19,7 +22,13 @@ $container = new Container();
 
 // 注入数据库
 $container->set('db', function () use ($config) {
-    return new Medoo($config['setting']['db']);
+
+    // return new Medoo($config['setting']['db']);
+    $capsule = new \Illuminate\Database\Capsule\Manager;
+    $capsule->addConnection($config['setting']['db']);
+    $capsule->setAsGlobal();
+    $capsule->bootEloquent();
+    return $capsule;
 });
 // 注入模板引擎
 $container->set('view', function () {
@@ -46,4 +55,3 @@ $app->add($errorMiddleware);
 
 // 引入路由文件
 require __DIR__ . "/../routes/web.php";
-

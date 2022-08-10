@@ -9,9 +9,9 @@
         "nyholm/psr7": "^1.1",
         "nyholm/psr7-server": "^1.0.2",
         "php-di/php-di": "^6.0",
-        "catfan/medoo": "^1.6",
         "slim/twig-view": "^2.5",
-        "laminas/laminas-diactoros": "^2.14"
+        "laminas/laminas-diactoros": "^2.14",
+        "illuminate/database": "^8.83.23"
     },
     "autoload": {
         "psr-4": {
