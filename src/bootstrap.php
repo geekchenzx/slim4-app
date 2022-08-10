@@ -12,11 +12,21 @@ use Medoo\Medoo;
 use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
 
-use function DI\env;
-
 require ROOT_BASE_PATH . 'vendor/autoload.php';
 $config = require ROOT_BASE_PATH . "src/config.php";
 
+require_once ROOT_BASE_PATH . 'src/Env.php';
+Env::loadFile();
+
+// Env文件读取
+if (!function_exists('env')) {
+    function env($key, $default = '')
+    {
+        return  \Env::get($key, $default);
+    }
+}
+
+var_dump(Env::get('mysql.driver'));
 //创建一个容器(第三方的)
 $container = new Container();
 
@@ -32,7 +42,6 @@ $container->set('db', function () use ($config) {
 });
 // 注入模板引擎
 $container->set('view', function () {
-
     return new \Slim\Views\Twig(ROOT_BASE_PATH . 'app/views', [
         // 模板缓存目录
         'cache' => ROOT_BASE_PATH . 'runtime/temp',
