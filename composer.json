@@ -1,17 +1,17 @@
 {
     "require": {
-        "slim/slim": "4.0.0-beta",
-        "slim/http": "^0.7.0",
-        "slim/psr7": "^0.3.0",
+        "slim/slim": "4.10.0",
+        "php": "^7.4 || ^8.0",
+        "slim/http": "^1.2.0",
+        "slim/psr7": "^1.5",
         "guzzlehttp/psr7": "^1.5",
         "http-interop/http-factory-guzzle": "^1.0",
-        "zendframework/zend-diactoros": "^2.1",
         "nyholm/psr7": "^1.1",
-        "nyholm/psr7-server": "^0.3.0",
+        "nyholm/psr7-server": "^1.0.2",
         "php-di/php-di": "^6.0",
         "catfan/medoo": "^1.6",
-        "slim/twig-view": "^2.5"
-
+        "slim/twig-view": "^2.5",
+        "laminas/laminas-diactoros": "^2.14"
     },
     "autoload": {
         "psr-4": {
@@ -20,6 +20,5 @@
         "files": [
             "app/common/functions.php"
         ]
-
     }
 }
