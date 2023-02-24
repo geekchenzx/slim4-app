@@ -19,9 +19,7 @@ class IndexController extends Controller
 {
     public function index(Request $request, Response $response)
     {
-        $user = User::all();
-        print_r($user->toArray());
-
+        var_dump(env('mysql'));
         $response->getBody()->write('这是主控制器');
         return $response;
     }

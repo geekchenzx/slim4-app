@@ -12,27 +12,23 @@ use Medoo\Medoo;
 use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
 
-require ROOT_BASE_PATH . 'vendor/autoload.php';
-$config = require ROOT_BASE_PATH . "src/config.php";
+require  '../vendor/autoload.php';
+$config = require "config.php";
 
-require_once ROOT_BASE_PATH . 'src/Env.php';
+require_once   'Env.php';
 Env::loadFile();
 
 // Env文件读取
-if (!function_exists('env')) {
-    function env($key, $default = '')
-    {
-        return  \Env::get($key, $default);
-    }
+function env($key, $default = '')
+{
+    return  \Env::get($key, $default);
 }
 
-var_dump(Env::get('mysql.driver'));
 //创建一个容器(第三方的)
 $container = new Container();
 
 // 注入数据库
 $container->set('db', function () use ($config) {
-
     // return new Medoo($config['setting']['db']);
     $capsule = new \Illuminate\Database\Capsule\Manager;
     $capsule->addConnection($config['setting']['db']);
@@ -42,9 +38,9 @@ $container->set('db', function () use ($config) {
 });
 // 注入模板引擎
 $container->set('view', function () {
-    return new \Slim\Views\Twig(ROOT_BASE_PATH . 'app/views', [
+    return new \Slim\Views\Twig('../app/views', [
         // 模板缓存目录
-        'cache' => ROOT_BASE_PATH . 'runtime/temp',
+        'cache' =>  '../runtime/temp',
         'auto_reload' => true,
         'debug' => true
     ]);
@@ -53,10 +49,8 @@ $container->set('view', function () {
 //app 工厂添加容器
 AppFactory::setContainer($container);
 //实例注入容器文件
-require ROOT_BASE_PATH . 'src/dependencies.php';
-
+require  'dependencies.php';
 $app = AppFactory::create();
-
 // 错误中间件
 $responseFactory = $app->getResponseFactory();
 $errorMiddleware = new ErrorMiddleware($app->getCallableResolver(), $responseFactory, true, true, true);

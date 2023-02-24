@@ -29,8 +29,8 @@ class Controller
      */
     public function __construct(Container $container)
     {
-        // 数据库依赖
-        $this->db = $container->get('db');
+        // // 数据库依赖
+        // $this->db = $container->get('db');
         // 模板引擎依赖
         $this->view = $container->get('view');
     }
