@@ -1,7 +1,7 @@
 {
     "require": {
-        "slim/slim": "4.10.0",
         "php": "^7.4 || ^8.0",
+        "slim/slim": "^4",
         "slim/http": "^1.2.0",
         "slim/psr7": "^1.5",
         "guzzlehttp/psr7": "^1.5",
