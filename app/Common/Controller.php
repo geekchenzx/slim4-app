@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chenzx
@@ -29,7 +30,7 @@ class Controller
      */
     public function __construct(Container $container)
     {
-        // // 数据库依赖
+        dd(env('mysql'));
         // $this->db = $container->get('db');
         // 模板引擎依赖
         $this->view = $container->get('view');
@@ -46,6 +47,4 @@ class Controller
     {
         return $this->view->render($response, $muban, $data);
     }
-
-
 }

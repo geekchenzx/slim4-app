@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: chenzx
@@ -13,9 +14,15 @@ use Slim\Middleware\ErrorMiddleware;
 
 require  '../vendor/autoload.php';
 $config = require "config.php";
-require 'helpers.php';
-require 'Env.php';
-Env::loadFile();
+// require 'functions.php';
+
+
+function env($name, $default = '')
+{
+    require 'Env.php';
+    Env::loadFile();
+    return \Env::get($name, $default);
+}
 
 //创建一个容器(第三方的)
 $container = new Container();
