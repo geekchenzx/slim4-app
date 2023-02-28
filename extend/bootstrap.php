@@ -13,7 +13,7 @@ use Slim\Middleware\ErrorMiddleware;
 
 require  '../vendor/autoload.php';
 $config = require "config.php";
-require './helpers.php';
+require 'helpers.php';
 require 'Env.php';
 Env::loadFile();
 
@@ -42,7 +42,6 @@ $container->set('view', function () {
 //app 工厂添加容器
 AppFactory::setContainer($container);
 //实例注入容器文件
-require  'dependencies.php';
 $app = AppFactory::create();
 // 错误中间件
 $responseFactory = $app->getResponseFactory();
