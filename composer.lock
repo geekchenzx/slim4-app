@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae409fe9319fe62b9ba15b7c391eb888",
+    "content-hash": "85f32c34919e666b6fcf78f61e0610c0",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2589,6 +2589,56 @@
                 "dump"
             ],
             "time": "2023-01-20T17:44:14+00:00"
+        },
+        {
+            "name": "toolkit/stdlib",
+            "version": "v2.0.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://mirrors.cloud.tencent.com/repository/composer/toolkit/stdlib/v2.0.10/toolkit-stdlib-v2.0.10.zip",
+                "reference": "3ff4fa55f05c04b74f82545af49df23b65f6e1ae",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "psr/container": "^2.0"
+            },
+            "suggest": {
+                "inhere/php-validate": "Very lightweight data validate tool"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/func.php"
+                ],
+                "psr-4": {
+                    "Toolkit\\Stdlib\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "https://github.com/inhere/"
+                }
+            ],
+            "description": "some stdlib tool library of the php",
+            "homepage": "https://github.com/php-toolkit/stdlib",
+            "keywords": [
+                "array",
+                "library",
+                "object",
+                "php",
+                "string",
+                "tool"
+            ],
+            "time": "2023-01-13T05:39:21+00:00"
         },
         {
             "name": "twig/twig",

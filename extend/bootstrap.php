@@ -9,20 +9,15 @@
 
 use DI\Container;
 use Medoo\Medoo;
+use PhpDocReader\PhpDocReader;
 use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
+use Toolkit\Stdlib\Util\PhpDotEnv;
 
 require  '../vendor/autoload.php';
 $config = require "config.php";
-// require 'functions.php';
 
-
-function env($name, $default = '')
-{
-    require 'Env.php';
-    Env::loadFile();
-    return \Env::get($name, $default);
-}
+PhpDotEnv::load(__DIR__, '../.env');
 
 //创建一个容器(第三方的)
 $container = new Container();
